@@ -1,5 +1,10 @@
-﻿@{
+﻿@model DataGov_API_Intro.Models.Rootobject
+@{
     Layout = null;
+}
+@foreach (DataGov_API_Intro.Models.Foodnutrient food in Model.data)
+{
+    @(food.foodNutrientSourceCode+ " " + food.nutrientName)
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -57,95 +62,94 @@
 
             <div class="search-box">
 
-                <input id="foodInput"  type="text" placeholder="banana,meat,milk..." />
+                <input id="foodInput" type="text" placeholder="banana,meat,milk..." />
                 <label for="" class="icon">
                     <button id="foodBtn" class="fa-solid fa-search"></button>
                 </label>
             </div>
 
         </div>
-       <table id="foodtb"style="width:80%;margin:auto;">
-           <thead>
-               <tr id="record">
-                   <th>Component</th>
-                   <th>Daily Value</th>
-               </tr>
-               
-           </thead>
-           <tbody style="color:white" id="FoodData">
+        <table id="foodtb" style="width:80%;margin:auto;">
+            <thead>
+                <tr id="record">
+                    <th>Component</th>
+                    <th>Daily Value</th>
+                </tr>
 
-           </tbody>
-       </table>
-       <h3  id ="norecord"style="color: white; text-align: center;display:none; padding: 2rem;">No Record Found</h3>
-</div>
+            </thead>
+            <tbody style="color:white" id="FoodData">
+            </tbody>
+        </table>
+        <h3 id="norecord" style="color: white; text-align: center;display:none; padding: 2rem;">No Record Found</h3>
+    </div>
 
-        <!--footer section-->
-        <div class="footer_Container">
-            <div class="footer_link">
-                <div class="footer_link_wrapper">
-                    <div class="footer_link_items">
-                        <h2>About Us</h2>
-                        <a href="">How It Works</a>
-                        <a href="">Testimonials</a>
-                        <a href="">Carrers</a>
-                        <a href="">Terms of Service</a>
-                    </div>
-                    <div class="footer_link_items">
-                        <h2>Contact Us</h2>
-                        <a href="">Contact</a>
-                        <a href="">Destination</a>
-                        <a href="">Sponsorships</a>
-                        <a href="">Support</a>
-
-                    </div>
+    <!--footer section-->
+    <div class="footer_Container">
+        <div class="footer_link">
+            <div class="footer_link_wrapper">
+                <div class="footer_link_items">
+                    <h2>About Us</h2>
+                    <a href="">How It Works</a>
+                    <a href="">Testimonials</a>
+                    <a href="">Carrers</a>
+                    <a href="">Terms of Service</a>
                 </div>
-                <div class="footer_link_wrapper">
-                    <div class="footer_link_items">
-                        <h2>Videos</h2>
-                        <a href="">Submit Videos</a>
-                        <a href="">Agency</a>
-                        <a href="">Influencer</a>
-                        <a href="">Ambassador</a>
+                <div class="footer_link_items">
+                    <h2>Contact Us</h2>
+                    <a href="">Contact</a>
+                    <a href="">Destination</a>
+                    <a href="">Sponsorships</a>
+                    <a href="">Support</a>
 
-                    </div>
-                    <div class="footer_link_items">
-                        <h2>Social Media</h2>
-                        <a href="">Facebook</a>
-                        <a href="">Instagram</a>
-                        <a href="">Youtube</a>
-                        <a href="">Twitter</a>
-                    </div>
                 </div>
             </div>
+            <div class="footer_link_wrapper">
+                <div class="footer_link_items">
+                    <h2>Videos</h2>
+                    <a href="">Submit Videos</a>
+                    <a href="">Agency</a>
+                    <a href="">Influencer</a>
+                    <a href="">Ambassador</a>
 
-            <div class="social_media">
-                <div class="social_media_wrap">
-                    <div class="footer_logo">
-                        <a href="" id="footer_logo"><i class="fa-solid fa-burger"></i>Know Your Food</a>
-
-                    </div>
-                    <p class="website_right">@@Know Your Food 2022. All Right Reserved</p>
-                    <div class="social_icons">
-                        <a href="" class="social_icon_link" target="_blank">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="" class="social_icon_link" target="_blank">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="" class="social_icon_link" target="_blank">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                        <a href="" class="social_icon_link" target="_blank">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="" class="social_icon_link" target="_blank">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                    </div>
+                </div>
+                <div class="footer_link_items">
+                    <h2>Social Media</h2>
+                    <a href="">Facebook</a>
+                    <a href="">Instagram</a>
+                    <a href="">Youtube</a>
+                    <a href="">Twitter</a>
                 </div>
             </div>
         </div>
 
-        <script src="/js/food.js"></script>
+        <div class="social_media">
+            <div class="social_media_wrap">
+                <div class="footer_logo">
+                    <a href="" id="footer_logo"><i class="fa-solid fa-burger"></i>Know Your Food</a>
+
+                </div>
+                <p class="website_right">@@Know Your Food 2022. All Right Reserved</p>
+                <div class="social_icons">
+                    <a href="" class="social_icon_link" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="" class="social_icon_link" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="" class="social_icon_link" target="_blank">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="" class="social_icon_link" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="" class="social_icon_link" target="_blank">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/food.js"></script>
 </body>
 </html>

@@ -1,5 +1,10 @@
-﻿@{
+﻿@model DataGov_API_Intro.Models.Rootobject
+@{
     Layout = null;
+}
+@foreach (DataGov_API_Intro.Models.Foodnutrient food in Model.data)
+{
+    @(food.foodNutrientSourceCode+ " " + food.nutrientName)
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

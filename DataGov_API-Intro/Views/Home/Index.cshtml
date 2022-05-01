@@ -1,157 +1,163 @@
-﻿@{
+﻿@*@model Know_Your_Food_API.Models.Foodnutrient*@
+@{
     Layout = null;
 }
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, intial-scale=1.0" />
-    <title>Know Your Food</title>
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/714e7707f1.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="navbar_Container">
-            <a href="/" id="navbar_logo"><i class="fa-solid fa-burger"></i> Know Your Food</a>
-            <div class="navbar_toggle" id="mobile_menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="navbar_menu">
-                <li class="navbar_item">
-                    <a href='@Url.Action("Index", "Home" )' class="navbar_links">
-                        Home
-                    </a>
-                </li>
-                <li class="navbar_item">
-                    <a href='@Url.Action("food", "Home" )' class="navbar_links">
-                        Food
-                    </a>
-                </li>
-                <li class="navbar_item">
-                    <a href='@Url.Action("Recipie", "Home" )' class="navbar_links">
-                        Recipies
-                    </a>
-                </li>
-                <li class="navbar_item">
-                    <a href='@Url.Action("Component", "Home" )' class="navbar_links">
-                        Components
-                    </a>
-                </li>
-                <li class="navbar_item">
-                    <a href='@Url.Action("AboutUs", "Home" )' class="navbar_links">
-                        About Us
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+@*@foreach (DataGov_API_Intro.Models.Foodnutrient food in Model.data)
+{
+    @(food.foodNutrientId +" " + food.nutrientName)*@
 
 
-    <div class="main">
-        <div class="main_container">
-
-            <div class="main_img_Container">
-                <!--<img src="/img/HomeImage.jpg" alt="no image" id="main_img" />-->
-                <div class="main_Content">
-                    <h1>Know Your Food</h1>
-                    <h2>Based on food items</h2>
-                    <p>See what makes us diffrent</p>
-                    <button class="main_btn" value="food" onclick="location.href='@Url.Action("food", "Home" )'">Get Started</button>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, intial-scale=1.0" />
+        <title>Know Your Food</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/714e7707f1.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar_Container">
+                <a href="/" id="navbar_logo"><i class="fa-solid fa-burger"></i> Know Your Food</a>
+                <div class="navbar_toggle" id="mobile_menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
+                <ul class="navbar_menu">
+                    <li class="navbar_item">
+                        <a href='@Url.Action("Index", "Home" )' class="navbar_links">
+                            Home
+                        </a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href='@Url.Action("food", "Home" )' class="navbar_links">
+                            Food
+                        </a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href='@Url.Action("Recipie", "Home" )' class="navbar_links">
+                            Recipies
+                        </a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href='@Url.Action("Component", "Home" )' class="navbar_links">
+                            Components
+                        </a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href='@Url.Action("AboutUs", "Home" )' class="navbar_links">
+                            About Us
+                        </a>
+                    </li>
+                </ul>
             </div>
+        </nav>
 
-        </div>
-    </div>
-    <div class="services">
-        <h1>Want to know more about your food</h1>
-        <div class="services_Container">
-            <div class="services_card">
-                <h2>Calorie Count</h2>
-                <p>Based on Ingredients</p>
-                <button value="Recipie" onclick="location.href='@Url.Action("Recipie", "Home" )'" class="main_btn">Get Started</button>
-            </div>
 
-            <div class="services_card">
-                <h2>How Healthy Your Food Is?</h2>
-                <p>Based on components</p>
-                <button value="Component" onclick="location.href='@Url.Action("Component", "Home" )'" class="main_btn">Get Started</button>
+        <div class="main">
+            <div class="main_container">
+
+                <div class="main_img_Container">
+                    <!--<img src="/img/HomeImage.jpg" alt="no image" id="main_img" />-->
+                    <div class="main_Content">
+                        <h1>Know Your Food</h1>
+                        <h2>Based on food items</h2>
+                        <p>See what makes us diffrent</p>
+                        <button class="main_btn" value="food" onclick="location.href='@Url.Action("food", "Home" )'">Get Started</button>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-
-
-    <!--footer section-->
-    <div class="footer_Container">
-        <div class="footer_link">
-            <div class="footer_link_wrapper">
-                <div class="footer_link_items">
-                    <h2>About Us</h2>
-                    <a href="">How It Works</a>
-                    <a href="AboutUs.html">Testimonials</a>
-                    <a href="">Carrers</a>
-                    <a href="">Terms of Service</a>
+        <div class="services">
+            <h1>Want to know more about your food</h1>
+            <div class="services_Container">
+                <div class="services_card">
+                    <h2>Calorie Count</h2>
+                    <p>Based on Ingredients</p>
+                    <button value="Recipie" onclick="location.href='@Url.Action("Recipie", "Home" )'" class="main_btn">Get Started</button>
                 </div>
-                <div class="footer_link_items">
-                    <h2>Contact Us</h2>
-                    <a href="">Contact</a>
-                    <a href="">Destination</a>
-                    <a href="">Sponsorships</a>
-                    <a href="">Support</a>
 
-                </div>
-            </div>
-            <div class="footer_link_wrapper">
-                <div class="footer_link_items">
-                    <h2>Videos</h2>
-                    <a href="">Submit Videos</a>
-                    <a href="">Agency</a>
-                    <a href="">Influencer</a>
-                    <a href="">Ambassador</a>
-
-                </div>
-                <div class="footer_link_items">
-                    <h2>Social Media</h2>
-                    <a href="">Facebook</a>
-                    <a href="">Instagram</a>
-                    <a href="">Youtube</a>
-                    <a href="">Twitter</a>
+                <div class="services_card">
+                    <h2>How Healthy Your Food Is?</h2>
+                    <p>Based on components</p>
+                    <button value="Component" onclick="location.href='@Url.Action("Component", "Home" )'" class="main_btn">Get Started</button>
                 </div>
             </div>
         </div>
 
-        <div class="social_media">
-            <div class="social_media_wrap">
-                <div class="footer_logo">
-                    <a href="" id="footer_logo"><i class="fa-solid fa-burger"></i>Know Your Food</a>
 
+        <!--footer section-->
+        <div class="footer_Container">
+            <div class="footer_link">
+                <div class="footer_link_wrapper">
+                    <div class="footer_link_items">
+                        <h2>About Us</h2>
+                        <a href="">How It Works</a>
+                        <a href="AboutUs.html">Testimonials</a>
+                        <a href="">Carrers</a>
+                        <a href="">Terms of Service</a>
+                    </div>
+                    <div class="footer_link_items">
+                        <h2>Contact Us</h2>
+                        <a href="">Contact</a>
+                        <a href="">Destination</a>
+                        <a href="">Sponsorships</a>
+                        <a href="">Support</a>
+
+                    </div>
                 </div>
-                <p class="website_right">@@Know Your Food 2022. All Right Reserved</p>
-                <div class="social_icons">
-                    <a href="" class="social_icon_link" target="_blank">
-                        <i class="fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="" class="social_icon_link" target="_blank">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="" class="social_icon_link" target="_blank">
-                        <i class="fa-brands fa-twitter"></i>
-                    </a>
-                    <a href="" class="social_icon_link" target="_blank">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <a href="" class="social_icon_link" target="_blank">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
+                <div class="footer_link_wrapper">
+                    <div class="footer_link_items">
+                        <h2>Videos</h2>
+                        <a href="">Submit Videos</a>
+                        <a href="">Agency</a>
+                        <a href="">Influencer</a>
+                        <a href="">Ambassador</a>
+
+                    </div>
+                    <div class="footer_link_items">
+                        <h2>Social Media</h2>
+                        <a href="">Facebook</a>
+                        <a href="">Instagram</a>
+                        <a href="">Youtube</a>
+                        <a href="">Twitter</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social_media">
+                <div class="social_media_wrap">
+                    <div class="footer_logo">
+                        <a href="" id="footer_logo"><i class="fa-solid fa-burger"></i>Know Your Food</a>
+
+                    </div>
+                    <p class="website_right">@@Know Your Food 2022. All Right Reserved</p>
+                    <div class="social_icons">
+                        <a href="" class="social_icon_link" target="_blank">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="" class="social_icon_link" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="" class="social_icon_link" target="_blank">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="" class="social_icon_link" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="" class="social_icon_link" target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="js/main.js"></script>
-</body>
+        <script src="js/main.js"></script>
+    </body>
 </html>
