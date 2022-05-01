@@ -15,7 +15,7 @@ namespace DataGov_API_Intro.Controllers
         //static string BASE_URL = "https://developer.nps.gov/api/v1";
         static string BASE_URL = "https://api.nal.usda.gov/fdc/v1";
         static string API_KEY = "yAdUGQQabSyuMX0CGur5SuEhS5Ud6xszLAWDMsr1"; //Add your API key here inside ""
-        static string query = "cheddar cheese";
+        static string query = "banana";
         //static string BASE_URL = "https://data.cdc.gov/api/views/hk9y-quqm/rows.json";
         // Obtaining the API key is easy. The same key should be usable across the entire
         // data.gov developer network, i.e. all data sources on data.gov.
