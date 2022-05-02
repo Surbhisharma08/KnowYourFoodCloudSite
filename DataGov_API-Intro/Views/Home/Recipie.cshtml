@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DataGov_API_Intro.Models.Rootobject
+@{
     Layout = null;
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -57,25 +58,53 @@
 
             <div class="search-box">
 
-                <input id="recipieInput" type="text" placeholder="type ingredients" />
+                 @using (Html.BeginForm("Recipie", "Home", FormMethod.Post))
+{
+   @Html.TextBox("SearchRecipie", ViewBag.CurrentFilter as string)
+   
+}
                 <label for="" class="icon">
                     <button id="recipeBtn" class="fa-solid fa-search"></button>
                 </label>
             </div>
 
         </div>
+        @if (Model != null){
         <table id="recipiettb" style="width:80%;margin:auto;">
             <thead>
                 <tr id="record">
-                    <th>Food</th>
+                     <th>Description</th>
+                    <th>Component</th>
                     <th>Calories</th>
                 </tr>
 
             </thead>
             <tbody style="color:white" id="RecipieData">
+                 @foreach (var items in Model.foods)
+
+{               @foreach (var food in items.foodNutrients){
+                        <tr>
+                            @if (food.value != 0)
+                            {
+                                <td>
+                                    @items.description
+                                </td>
+                                <td>
+                                    @food.nutrientName
+                                </td>
+                                <td>
+                                    @food.value
+                                </td>
+                                <td><input type="button" value="Delete" onclick="SomeDeleteRowFunction(this)"></td>
+                            }
+                        </tr>
+                        }
+                        }
             </tbody>
         </table>
+        }else{
         <h3 id="norecord" style="color: white; text-align: center;display:none; padding: 2rem;">No Record Found</h3>
+        }
     </div>
 
     <!--footer section-->

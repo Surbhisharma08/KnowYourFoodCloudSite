@@ -8,6 +8,7 @@
         public int[] pageList { get; set; }
         public Foodsearchcriteria foodSearchCriteria { get; set; }
         public Food[] foods { get; set; }
+        public Foodnutrient[] foodNutrients { get; set; }
         public Aggregations aggregations { get; set; }
     }
 
@@ -46,6 +47,7 @@
         public string commonNames { get; set; }
         public string additionalDescriptions { get; set; }
         public string dataType { get; set; }
+        public string ingredients { get; set; }
         public int foodCode { get; set; }
         public string publishedDate { get; set; }
         public string foodCategory { get; set; }

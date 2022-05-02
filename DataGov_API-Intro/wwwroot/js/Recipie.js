@@ -1,4 +1,9 @@
-﻿// JavaScript source code
+﻿function SomeDeleteRowFunction(o) {
+
+    var p = o.parentNode.parentNode;
+    p.parentNode.removeChild(p);
+}
+// JavaScript source code
 let Applepie = [{ component: 'apple', dailyvalue: '95' },
 { component: 'sugar', dailyvalue: '9' },
 { component: 'flour', dailyvalue: '80' },

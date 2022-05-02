@@ -1,4 +1,10 @@
 ﻿// JavaScript source code
+function SomeDeleteRowFunction(o) {
+   
+    var p = o.parentNode.parentNode;
+    p.parentNode.removeChild(p);
+}
+
 let FoodDataB = [{ component: 'Total Fat', dailyvalue: '0.4g' },
 { component: 'Cholesterol', dailyvalue: '0g' },
 { component: 'Sodium', dailyvalue: '1mg' },

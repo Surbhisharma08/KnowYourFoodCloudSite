@@ -1,4 +1,5 @@
-﻿@{
+﻿@model DataGov_API_Intro.Models.Rootobject
+@{
     Layout = null;
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -57,25 +58,54 @@
 
             <div class="search-box">
 
-                <input id="componentInput" type="text" placeholder="calcium,protein,zinc..." />
+                @using (Html.BeginForm("Component", "Home", FormMethod.Post))
+{
+   @Html.TextBox("ComponentString", ViewBag.CurrentFilter as string)
+   
+}
                 <label for="" class="icon">
                     <button id="componentBtn" class="fa-solid fa-search"></button>
                 </label>
             </div>
 
         </div>
-        <table id="Componenttb" style="width:80%;margin:auto;">
-            <thead>
+        @if (Model != null)
+        {
+            <table id="Componenttb" style="width:80%;margin:auto;">
+                <thead>
                 <tr id="record">
-                    <th>Food</th>
+                      <th>Food</th>
+                    <th>Component</th>
                     <th>Daily Value</th>
                 </tr>
 
             </thead>
             <tbody style="color:white" id="ComponentData">
+                @foreach (var items in Model.foods)
+
+{               @foreach (var food in items.foodNutrients){
+                        <tr>
+                            @if (food.value != 0)
+                            {
+                                <td>
+                                    @items.description
+                                </td>
+                                <td>
+                                    @food.nutrientName
+                                </td>
+                                <td>
+                                    @food.value
+                                </td>
+                                <td><input type="button" value="Delete" onclick="SomeDeleteRowFunction(this)"></td>
+                            }
+                        </tr>
+                        }
+                        }
             </tbody>
-        </table>
+        </table>}
+        else{
         <h3 id="norecord" style="color: white; text-align: center;display:none; padding: 2rem;">No Record Found</h3>
+        }
     </div>
 
     <!--footer section-->

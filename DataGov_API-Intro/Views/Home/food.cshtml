@@ -1,6 +1,9 @@
-﻿@{
+﻿@model DataGov_API_Intro.Models.Rootobject
+@{
     Layout = null;
 }
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -54,30 +57,65 @@
         <h1 style="color: #ff8177;text-align:center;">Food's Nutritional Facts</h1>
         <h3 style="color: white; text-align: center; padding: 2rem;">Get nutrition facts based on food to empower you to create a better diet. Type in food items to see the nutritional value. Note- search for milk, banana,meat for result and any other items for no result.</h3>
         <div class="box ">
-
+           
             <div class="search-box">
-
-                <input id="foodInput"  type="text" placeholder="banana,meat,milk..." />
+                @using (Html.BeginForm("food", "Home", FormMethod.Post))
+{
+   @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+   
+}
+                
+               @* <input id= "foodInput" type="search"  placeholder="banana,meat,milk..."  />*@
+                
                 <label for="" class="icon">
                     <button id="foodBtn" class="fa-solid fa-search"></button>
                 </label>
+                
             </div>
-
+            
         </div>
+         @if (Model != null){
        <table id="foodtb"style="width:80%;margin:auto;">
            <thead>
                <tr id="record">
+                   <th>Description</th>
                    <th>Component</th>
                    <th>Daily Value</th>
                </tr>
                
            </thead>
            <tbody style="color:white" id="FoodData">
+              
+               @foreach (var items in Model.foods)
 
+{               @foreach (var food in items.foodNutrients){
+                        <tr>
+                            @if (food.value != 0)
+                            {
+                                <td>
+                                    @items.description
+                                </td>
+                                <td>
+                                    @food.nutrientName
+                                </td>
+                                <td>
+                                    @food.value
+                                </td>
+                                <td><input type="button" value="Delete" onclick="SomeDeleteRowFunction(this)"></td>
+                            }
+                        </tr>
+}
+}
            </tbody>
+           
        </table>
+       }
+       else {
+       
        <h3  id ="norecord"style="color: white; text-align: center;display:none; padding: 2rem;">No Record Found</h3>
+       }
 </div>
+
 
         <!--footer section-->
         <div class="footer_Container">

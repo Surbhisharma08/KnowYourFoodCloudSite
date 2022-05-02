@@ -1,4 +1,9 @@
 ﻿// JavaScript source code
+function SomeDeleteRowFunction(o) {
+
+    var p = o.parentNode.parentNode;
+    p.parentNode.removeChild(p);
+}
 let ComponentZinc = [{ component: 'Oysters', dailyvalue: '74mg' },
 { component: 'Beef', dailyvalue: '7mg' },
 { component: 'Yogurt', dailyvalue: '1mg' },
