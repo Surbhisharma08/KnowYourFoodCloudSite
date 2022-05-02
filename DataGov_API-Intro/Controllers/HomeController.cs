@@ -140,8 +140,53 @@ namespace DataGov_API_Intro.Controllers
         }
         public ActionResult Recipie()
         {
+            httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Add("X-Api-Key", API_KEY);
+            httpClient.DefaultRequestHeaders.Add("query", query);
+            httpClient.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            // accept data-type in json format
 
-            return View();
+            //string NATIONAL_PARK_API_PATH = BASE_URL + "/parks?limit=20";
+            string NATIONAL_FOOD_API_PATH = BASE_URL + "/foods/search?limit=20";
+            string foodsData = "";
+
+            Rootobject foods = null;
+
+            httpClient.BaseAddress = new Uri(NATIONAL_FOOD_API_PATH);
+            //httpClient.BaseAddress = new Uri(BASE_URL);
+
+            try
+            {
+                HttpResponseMessage response = httpClient.GetAsync(NATIONAL_FOOD_API_PATH)
+                                                        .GetAwaiter().GetResult();
+                //HttpResponseMessage response = httpClient.GetAsync(BASE_URL)
+                //                                        .GetAwaiter().GetResult();
+
+
+
+                if (response.IsSuccessStatusCode)
+                {
+                    foodsData = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                }
+
+                if (!foodsData.Equals(""))
+                {
+                    //JsonConvert is part of the NewtonSoft.Json Nuget package
+                    foods = JsonConvert.DeserializeObject<Rootobject>(foodsData);
+                }
+
+                //dbContext.Parks.Add(parks);
+                //await dbContext.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                // This is a useful place to insert a breakpoint and observe the error message
+                Console.WriteLine(e.Message);
+            }
+
+            return View(foods);
         }
         [HttpPost]
         public ActionResult Recipie(string SearchRecipie)
@@ -199,13 +244,103 @@ namespace DataGov_API_Intro.Controllers
 
         public ActionResult AboutUs()
         {
+            httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Add("X-Api-Key", API_KEY);
+            httpClient.DefaultRequestHeaders.Add("query", query);
+            httpClient.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            // accept data-type in json format
 
-            return View();
+            //string NATIONAL_PARK_API_PATH = BASE_URL + "/parks?limit=20";
+            string NATIONAL_FOOD_API_PATH = BASE_URL + "/foods/search?limit=20";
+            string foodsData = "";
+
+            Rootobject foods = null;
+
+            httpClient.BaseAddress = new Uri(NATIONAL_FOOD_API_PATH);
+            //httpClient.BaseAddress = new Uri(BASE_URL);
+
+            try
+            {
+                HttpResponseMessage response = httpClient.GetAsync(NATIONAL_FOOD_API_PATH)
+                                                        .GetAwaiter().GetResult();
+                //HttpResponseMessage response = httpClient.GetAsync(BASE_URL)
+                //                                        .GetAwaiter().GetResult();
+
+
+
+                if (response.IsSuccessStatusCode)
+                {
+                    foodsData = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                }
+
+                if (!foodsData.Equals(""))
+                {
+                    //JsonConvert is part of the NewtonSoft.Json Nuget package
+                    foods = JsonConvert.DeserializeObject<Rootobject>(foodsData);
+                }
+
+                //dbContext.Parks.Add(parks);
+                //await dbContext.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                // This is a useful place to insert a breakpoint and observe the error message
+                Console.WriteLine(e.Message);
+            }
+
+            return View(foods);
         }
         public ActionResult Component()
         {
+            httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Add("X-Api-Key", API_KEY);
+            httpClient.DefaultRequestHeaders.Add("query", query);
+            httpClient.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            // accept data-type in json format
 
-            return View();
+            //string NATIONAL_PARK_API_PATH = BASE_URL + "/parks?limit=20";
+            string NATIONAL_FOOD_API_PATH = BASE_URL + "/foods/search?limit=20";
+            string foodsData = "";
+
+            Rootobject foods = null;
+
+            httpClient.BaseAddress = new Uri(NATIONAL_FOOD_API_PATH);
+            //httpClient.BaseAddress = new Uri(BASE_URL);
+
+            try
+            {
+                HttpResponseMessage response = httpClient.GetAsync(NATIONAL_FOOD_API_PATH)
+                                                        .GetAwaiter().GetResult();
+                //HttpResponseMessage response = httpClient.GetAsync(BASE_URL)
+                //                                        .GetAwaiter().GetResult();
+
+
+
+                if (response.IsSuccessStatusCode)
+                {
+                    foodsData = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                }
+
+                if (!foodsData.Equals(""))
+                {
+                    //JsonConvert is part of the NewtonSoft.Json Nuget package
+                    foods = JsonConvert.DeserializeObject<Rootobject>(foodsData);
+                }
+
+                //dbContext.Parks.Add(parks);
+                //await dbContext.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                // This is a useful place to insert a breakpoint and observe the error message
+                Console.WriteLine(e.Message);
+            }
+
+            return View(foods);
         }
         [HttpPost]
         public ActionResult Component(string ComponentString)

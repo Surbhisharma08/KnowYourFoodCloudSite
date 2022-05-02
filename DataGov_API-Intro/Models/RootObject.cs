@@ -1,4 +1,6 @@
-﻿namespace DataGov_API_Intro.Models
+﻿using System.Collections.Generic;
+
+namespace DataGov_API_Intro.Models
 {
     public class Rootobject
     {
@@ -6,6 +8,7 @@
         public int currentPage { get; set; }
         public int totalPages { get; set; }
         public int[] pageList { get; set; }
+        public List<Foodnutrient> data { get; set; }
         public Foodsearchcriteria foodSearchCriteria { get; set; }
         public Food[] foods { get; set; }
         public Foodnutrient[] foodNutrients { get; set; }
